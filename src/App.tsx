@@ -5,6 +5,7 @@ import { ThemeProvider } from '@mui/material';
 import customerTheme from './theme/customerTheme.ts';
 import Home from './customer/pages/home/Home.tsx';
 import Product from './customer/pages/product/Product.tsx';
+import ProductDateils from './customer/pages/productDetails/ProductDetails.tsx';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <div>
         <Navbar/>
         {/* <Home/> */}
-        <Product/>
+        {/* <Product/> */}
+        <ProductDateils/>
       </div>
       
     </ThemeProvider>
