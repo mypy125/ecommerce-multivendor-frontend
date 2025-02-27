@@ -65,10 +65,10 @@ const ProductCard = () => {
                     </div>
                     <div className="price flex items-center gap-3">
                         <span className="font-sans text-gray-800">
-                            ֏ 5000
+                            ֏5000
                         </span>
                         <span className="thin-line-through text-gray-400">
-                            ֏ 9000
+                            ֏9000
                         </span>
                         <span className="text-primary-color font-semibold">
                             60%
