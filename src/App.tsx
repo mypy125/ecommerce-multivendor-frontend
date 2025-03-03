@@ -6,6 +6,8 @@ import customerTheme from './theme/customerTheme.ts';
 import Home from './customer/pages/home/Home.tsx';
 import Product from './customer/pages/product/Product.tsx';
 import ProductDateils from './customer/pages/productDetails/ProductDetails.tsx';
+import Review from './customer/pages/review/Review.tsx';
+import Cart from './customer/pages/cart/Cart.tsx';
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
         <Navbar/>
         {/* <Home/> */}
         {/* <Product/> */}
-        <ProductDateils/>
+        {/* <ProductDateils/> */}
+        {/* <Review/> */}
+        <Cart/>
       </div>
       
     </ThemeProvider>

@@ -3,6 +3,7 @@ import { Button, Divider } from "@mui/material";
 import { teal } from "@mui/material/colors";
 import React, { useState } from "react";
 import SimilarProduct from "./SimilarProduct.tsx";
+import ReviewCard from "../review/ReviewCard.tsx";
 
 const ProductDateils = () => {
     const [quantity, setQuantity]=React.useState(1);
@@ -120,6 +121,11 @@ const ProductDateils = () => {
                         the model may be for modeling purposes only. Check the blouse portion 
                         image to get an idea of how the actual blouse portion looks like. 
                         </p>
+                    </div>
+
+                    <div className="mt-12 space-y-5">
+                        <ReviewCard/>
+                        <Divider/>
                     </div>
 
                 </section>
