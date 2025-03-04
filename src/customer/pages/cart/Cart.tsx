@@ -3,6 +3,7 @@ import CartItem from "./CartItem.tsx";
 import { Close, LocalOffer } from "@mui/icons-material";
 import { teal } from "@mui/material/colors";
 import { Button, IconButton, TextField } from "@mui/material";
+import PricingCard from "./PricingCard.tsx";
 
 const Cart = () => {
     const [couponCode,setCouponCode]=useState("");
@@ -33,26 +34,37 @@ const Cart = () => {
                             <span>Apply Coupons</span>
                         </div>
                         
-                  {true ? <div className="flex justify-between items-center">
-                            <TextField id="outline-basic" 
-                            placeholder="coupon code" size="small"
-                             variant="outlined"/>
+                        {
+                            true ? 
+                            <div className="flex justify-between items-center">
+                                <TextField id="outline-basic" 
+                                placeholder="coupon code" size="small"
+                                 variant="outlined"/>
 
-                             <Button onClick={handleChange} size="small">
-                                Apply
-                             </Button>
-                        </div> :
-                        <div className="flex">
-                            <div className="p-1 pl-5 pr-3 border rounded-md flex gap-2 items-center">
-                                <span className="">HSBG68 Applied</span>
-                                <IconButton size="small">
-                                    <Close className="text-red-600"/>
-                                </IconButton>
+                                 <Button onClick={handleChange} size="small">
+                                    Apply
+                                 </Button>
+                            </div> :
+                            <div className="flex">
+                                <div className="p-1 pl-5 pr-3 border rounded-md flex gap-2 items-center">
+                                    <span className="">HSBG68 Applied</span>
+                                    <IconButton size="small">
+                                        <Close className="text-red-600"/>
+                                    </IconButton>
+                                </div>
                             </div>
-                        </div>
                         }
-
-                      
+                    </div>
+                    <div className="border rounded-md">
+                        <PricingCard/>
+                        <div className="p-5">
+                            <Button 
+                            fullWidth 
+                            variant="contained" 
+                            sx={{py:"11px"}}>
+                                Buy Now
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

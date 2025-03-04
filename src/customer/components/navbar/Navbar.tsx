@@ -7,7 +7,7 @@ import CategorySheet from "./CategorySheet.tsx";
 import { mainCategory } from "../../../data/category/mainCategory.ts";
 
 const Navbar = () => {
-    const isLoggedIn = true;
+    const isLoggedIn = false;
     const theme = useTheme();
     const isLarge = useMediaQuery(theme.breakpoints.up("lg"));
     const [selectedCategory, setSelectedCategory]=useState("men");
