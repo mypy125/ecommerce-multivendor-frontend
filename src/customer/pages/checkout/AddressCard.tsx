@@ -21,7 +21,7 @@ const AddressCard = () => {
             <div className="space-y-3 pt-3">
                 <h1>Gor</h1>
                 <p className="w-[320px]">Armenia, Yerevan, Arabkir 124</p>
-                <strong>Mobile:<p>+37444082124</p></strong>
+                <strong>Mobile:<span> +37444082124</span></strong>
             </div>
         </div>
     )
