@@ -22,7 +22,7 @@ const paymentGatewayList=[
         label:""
     },
     {
-        VALUE:"STRIPE",
+        value:"STRIPE",
         image:"https://media.designrush.com/inspiration_images/656400/conversions/1-desktop.jpg",
         label:""
     }
