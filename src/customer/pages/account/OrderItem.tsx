@@ -24,7 +24,7 @@ const OrderItem = () => {
         <div className="p-5 bg-teal-50 flex gap-3">
             <div>
                 <img className="w-[70px]" 
-                    src="https://img.freepik.com/free-vector/blond-man-with-eyeglasses-icon-isolated_24911-100831.jpg?semt=ais_hybrid"
+                    src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D"
                  alt="" 
                 />
             </div>
