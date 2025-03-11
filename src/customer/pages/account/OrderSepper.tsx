@@ -5,16 +5,16 @@ import React, { useEffect, useState } from "react";
 
 const steps=[
     {name:"OrderPlaced", description:"on Thu, 11 March", value:"PLACED"},
-    {name:"Packed", description:"Item packed in Dispatch Warehause", value:"CONFIRM"},
+    {name:"Packed", description:"Item packed in Dispatch Warehause", value:"CONFIRMED"},
     {name:"Shipped", description:"on Mon, 15 March", value:"SHIPPED"},
     {name:"Arriving", description:"on Thu, 16 March", value:"ARRIVING"},
     {name:"Arrived", description:"on Thu, 16 March", value:"DELIVERED"},
-    // {name:"Canceled", description:"on Thu, 16 March", value:"CANCELLED"}
+    // {name:"Canceled", description:"on Thu, 16 March", value:"CANCELED"}
 
 ]
 const canceledStep=[
     {name:"Order Placed", description:"on Thu, 11 March", value:"PLACED"},
-    {name:"Order Canceled", description:"on Thu, 11 March", value:"CANCELLED"},
+    {name:"Order Canceled", description:"on Thu, 11 March", value:"CANCELED"},
 ]
 
 const currentStep=2
@@ -22,7 +22,7 @@ const OrderSepper = ({orderStatus}:any) => {
     const [statusStep, setStatusStep]=useState(steps);
 
     useEffect(()=> {
-        if(orderStatus === 'CANCELLED'){
+        if(orderStatus === 'CANCELED'){
             setStatusStep(canceledStep)
         }
         else{
@@ -61,7 +61,7 @@ const OrderSepper = ({orderStatus}:any) => {
                         <div className={`${step.value===orderStatus
                             ? "bg-primary-color p-2 text-white font-medim rounded-md -translate-y-3"
                             :""
-                        } ${(orderStatus==="CANCALLED"&&step.value===orderStatus)
+                        } ${(orderStatus==="CANCALED"&&step.value===orderStatus)
                             ? "bg-red-500":""
                         }w-full`}
                         >
