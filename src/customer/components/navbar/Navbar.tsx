@@ -5,13 +5,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import { AddShoppingCart, FavoriteBorder, Storefront } from "@mui/icons-material";
 import CategorySheet from "./CategorySheet.tsx";
 import { mainCategory } from "../../../data/category/mainCategory.ts";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-    const isLoggedIn = false;
+    const isLoggedIn = true;
     const theme = useTheme();
     const isLarge = useMediaQuery(theme.breakpoints.up("lg"));
     const [selectedCategory, setSelectedCategory]=useState("men");
     const [showCategorySheet, setShowCategorySheet]=useState(false);
+    const navigate=useNavigate();
 
     return (
         <>
@@ -23,7 +25,7 @@ const Navbar = () => {
                                     </IconButton>
                         }
                         
-                        <h1 className="logo cursor-pointer text-lg md:text-2xl text-primary-color">
+                        <h1 onClick={()=>navigate("/")} className="logo cursor-pointer text-lg md:text-2xl text-primary-color">
                             shop
                         </h1>
                     </div>
@@ -50,7 +52,7 @@ const Navbar = () => {
                         </IconButton>
 
                         {isLoggedIn ? (
-                            <Button className="flex items-center gap-2">
+                            <Button onClick={()=>navigate("/account/orders")} className="flex items-center gap-2">
                                 <Avatar 
                                     sx={{ width: 29, height: 29 }} 
                                     src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -65,7 +67,7 @@ const Navbar = () => {
                             <FavoriteBorder sx={{ fontSize: 29 }} />
                         </IconButton>
 
-                        <IconButton>
+                        <IconButton onClick={()=>navigate("/cart")}>
                             <AddShoppingCart className="text-gray-700" sx={{ fontSize: 29 }} />
                         </IconButton>
 
