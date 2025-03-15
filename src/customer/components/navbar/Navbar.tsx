@@ -72,7 +72,7 @@ const Navbar = () => {
                         </IconButton>
 
                         {isLarge && (
-                            <Button startIcon={<Storefront />} variant="outlined">
+                            <Button onClick={()=>navigate("/become-seller")} startIcon={<Storefront />} variant="outlined">
                                 Become Seller
                             </Button>
                         )}
