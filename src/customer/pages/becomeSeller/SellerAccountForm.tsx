@@ -2,6 +2,7 @@ import { Button, Step, StepLabel, Stepper } from "@mui/material";
 import React, { useState } from "react";
 import BecomeSellerFormStep1 from "./BecomeSellerFormStep1.tsx";
 import { useFormik } from "formik";
+import BecomeSellerFormStep2 from "./BecomeSellerFormStep2.tsx";
 
 const steps=[
     "Tax Details & Mobile",
@@ -77,24 +78,27 @@ const SellerAccountForm = () => {
                     ))
                 }
             </Stepper>
-            <section>
+            <section className="mt-20 space-y-1">
+                <div>
                 {
-                    activeStep===0 ? <BecomeSellerFormStep1 formik={formik}/>:""
+                    activeStep===0 ? <BecomeSellerFormStep1 formik={formik}/>:
+                    activeStep===1 ? <BecomeSellerFormStep2 formik={formik}/>:""
                 }
+                </div>
+                
+                <div className="flex items-center justify-between">
+                    <Button onClick={handleStep(-1)} variant="contained" disabled={activeStep===0}>
+                        back
+                    </Button>
+                    <Button onClick={handleStep(1)} variant="contained" >
+                    {
+                        activeStep==(steps.length-1)?"Create Account":"Continue"
+                    }
+                    </Button>
 
+                </div>
             </section>
-            <div className="flex items-center justify-between">
-                <Button onClick={handleStep(-1)} variant="contained" disabled={activeStep===0}>
-                    back
-                </Button>
-                <Button onClick={handleStep(1)} variant="contained" >
-                {
-                    activeStep==(steps.length-1)?"Create Account":"Continue"
-                }
-                    continue
-                </Button>
-
-            </div>
+           
         </div>
     )
 }
