@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import BecomeSellerFormStep1 from "./BecomeSellerFormStep1.tsx";
 import { useFormik } from "formik";
 import BecomeSellerFormStep2 from "./BecomeSellerFormStep2.tsx";
+import { BecomeSellerFormStep3 } from "./BecomeSellerFormStep4.tsx";
+import { BecomeSellerFormStep4 } from "./BecomeSellerFormStep3.tsx";
 
 const steps=[
     "Tax Details & Mobile",
@@ -82,7 +84,9 @@ const SellerAccountForm = () => {
                 <div>
                 {
                     activeStep===0 ? <BecomeSellerFormStep1 formik={formik}/>:
-                    activeStep===1 ? <BecomeSellerFormStep2 formik={formik}/>:""
+                    activeStep===1 ? <BecomeSellerFormStep2 formik={formik}/>:
+                    activeStep===2 ? <BecomeSellerFormStep3 formik={formik}/>:
+                    <BecomeSellerFormStep4 formik={formik}/>
                 }
                 </div>
                 
