@@ -1,5 +1,6 @@
 import React from "react";
 import SellerDrawerList from "../../components/sellerDrawerList/SellerDrawerList.tsx";
+import SellerRoutes from "../../../routes/SellerRoutes.tsx";
 
 const SellerDashboard = () => {
     const toggleDrawer = () => {}
@@ -10,7 +11,7 @@ const SellerDashboard = () => {
                     <SellerDrawerList toggleDrawer={toggleDrawer}/>
                 </section>
                 <section className="p-10 w-full lg:w-[80%] overflow-y-auto">
-                    seller routes
+                    <SellerRoutes/>
                 </section>
             </div>
         </div>
