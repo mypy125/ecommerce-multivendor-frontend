@@ -373,8 +373,14 @@ const AddProductForm = () => {
                             }
                         </FormControl>
                     </Grid2>
-                    <Grid2 size={{ xs: 12 }}>
-                        <Button fullWidth type="submit" variant="contained" color="primary">
+                    <Grid2 size={{xs: 12}}>
+                        <Button 
+                        sx={{p: "14px"}} 
+                        fullWidth 
+                        type="submit" 
+                        variant="contained" 
+                        color="primary"
+                        >
                             Add Product
                         </Button>
                     </Grid2>
