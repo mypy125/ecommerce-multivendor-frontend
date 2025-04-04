@@ -20,12 +20,12 @@ export const BecomeSellerFormStep3: React.FC<BecomeSellerFormStep2Props> = ({for
             <TextField
             fullWidth
             name="bankDetails.ifscCode"
-            label="IFSC Code"
-            value={formik.values.bankDetails.ifscCode}
+            label="Bank Code"
+            value={formik.values.bankDetails.bankCode}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.bankDetails?.ifscCode && Boolean(formik.errors.ifscCode)}
-            helperText={formik.touched.bankDetails?.ifscCode && formik.errors.ifscCode}
+            error={formik.touched.bankDetails?.bankCode && Boolean(formik.errors.bankCode)}
+            helperText={formik.touched.bankDetails?.bankCode && formik.errors.bankCode}
             />
              <TextField
             fullWidth
