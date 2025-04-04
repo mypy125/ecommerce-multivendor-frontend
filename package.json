@@ -1,6 +1,6 @@
 {
   "name": "ecommerce-react",
-  "nomepage": "https://mypy125.github.io/ecommerce-multivendor-frontend/",
+  "homepage": "https://mypy125.github.io/ecommerce-multivendor-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
