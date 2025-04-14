@@ -1,10 +1,11 @@
 import React from "react";
+import HomeCategoryTable from "./HomeCategoryTable.tsx";
 
 const ShopByCategory = () => {
     
     return(
         <div>
-           ShopByCategory
+           <HomeCategoryTable/>
         </div>
     )
 }

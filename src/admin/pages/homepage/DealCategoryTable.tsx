@@ -1,13 +1,13 @@
 import React from "react";
 import HomeCategoryTable from "./HomeCategoryTable.tsx";
 
-const GridTable = () => {
-    
+const DealCategoryTable = () => {
+   
     return(
         <div>
-           <HomeCategoryTable/>
+            <HomeCategoryTable/>
         </div>
     )
 }
 
-export default GridTable;
+export default DealCategoryTable
