@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/ecommerce-multivendor-frontend/static/css/main.fcadfd29.css",
-    "main.js": "/ecommerce-multivendor-frontend/static/js/main.838dd540.js",
+    "main.css": "/ecommerce-multivendor-frontend/static/css/main.b4255374.css",
+    "main.js": "/ecommerce-multivendor-frontend/static/js/main.72a2ae8a.js",
     "static/media/slick.svg": "/ecommerce-multivendor-frontend/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/ecommerce-multivendor-frontend/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/ecommerce-multivendor-frontend/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/ecommerce-multivendor-frontend/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/ecommerce-multivendor-frontend/index.html",
-    "main.fcadfd29.css.map": "/ecommerce-multivendor-frontend/static/css/main.fcadfd29.css.map",
-    "main.838dd540.js.map": "/ecommerce-multivendor-frontend/static/js/main.838dd540.js.map"
+    "main.b4255374.css.map": "/ecommerce-multivendor-frontend/static/css/main.b4255374.css.map",
+    "main.72a2ae8a.js.map": "/ecommerce-multivendor-frontend/static/js/main.72a2ae8a.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcadfd29.css",
-    "static/js/main.838dd540.js"
+    "static/css/main.b4255374.css",
+    "static/js/main.72a2ae8a.js"
   ]
 }
