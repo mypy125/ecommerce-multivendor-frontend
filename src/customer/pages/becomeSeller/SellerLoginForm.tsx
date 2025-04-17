@@ -2,7 +2,8 @@ import { Button, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import React from "react";
 import { useAppDispatch } from "../../../state/Store.ts";
-import { sendLoginSignupOtp, signin } from "../../../state/AuthSlice.ts";
+import { sendLoginSignupOtp } from "../../../state/AuthSlice.ts";
+import { sellerLogin } from "../../../state/seller/sellerAuthSlice.ts";
 
 const SellerLoginForm = () => {
     const dispatch = useAppDispatch()
@@ -13,7 +14,10 @@ const SellerLoginForm = () => {
         },
         onSubmit:(values)=>{
             console.log("form data",values)
-            dispatch(signin(values))
+            dispatch(sellerLogin({
+                email:values.email,
+                otp:values.otp
+            }))
         }
     })
 

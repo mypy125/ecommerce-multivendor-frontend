@@ -10,12 +10,28 @@ import Review from './customer/pages/review/Review.tsx';
 import Cart from './customer/pages/cart/Cart.tsx';
 import Checkout from './customer/pages/checkout/Checkout.tsx';
 import Account from './customer/pages/account/Account.tsx';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import BecomeSeller from './customer/pages/becomeSeller/BecomeSeller.tsx';
 import SellerDashboard from './seller/pages/sellerDashboard/SellerDashboard.tsx';
 import AdminDashboard from './admin/pages/dashboard/Dashboard.tsx';
+import store, { useAppDispatch, useAppSelector } from './state/Store.ts';
+import { fetchSellerProfile } from './state/seller/sellerSlice.ts';
 
 function App() {
+  const dispatch = useAppDispatch();
+  const navigate =useNavigate();
+  const { seller } = useAppSelector(store=>store);
+
+  useEffect(()=>{
+    dispatch(fetchSellerProfile(localStorage.getItem("jwt") || ""))
+  },[])
+
+  useEffect(()=>{
+    if(seller.profile){
+      navigate("/seller")
+    }
+  },[seller.profile])
+  
   return (
     <ThemeProvider theme={customerTheme}>
       <div>
