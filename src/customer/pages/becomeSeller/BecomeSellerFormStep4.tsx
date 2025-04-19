@@ -19,7 +19,7 @@ export const BecomeSellerFormStep3: React.FC<BecomeSellerFormStep2Props> = ({for
             />
             <TextField
             fullWidth
-            name="bankDetails.ifscCode"
+            name="bankDetails.bankCode"
             label="Bank Code"
             value={formik.values.bankDetails.bankCode}
             onChange={formik.handleChange}
