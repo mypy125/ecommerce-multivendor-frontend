@@ -4,9 +4,11 @@ import { teal } from "@mui/material/colors";
 import React, { useState } from "react";
 import SimilarProduct from "./SimilarProduct.tsx";
 import ReviewCard from "../review/ReviewCard.tsx";
+import { useAppDispatch } from "../../../state/Store.ts";
 
 const ProductDateils = () => {
     const [quantity, setQuantity]=React.useState(1);
+    const dispatch=useAppDispatch();
 
     return(
         <div  className="px-5 lg:px-20 pt-10">

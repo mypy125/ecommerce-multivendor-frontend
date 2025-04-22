@@ -2,11 +2,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { thunk } from "redux-thunk";
 import sellerSlice from "./seller/sellerSlice.ts";
-import sellerProductSlice from "./seller/sellerProductSlice.ts"
+import sellerProductSlice from "./seller/sellerProductSlice.ts";
+import productSlice from "./customer/productSlice.ts";
 
 const rootReducer=combineReducers({
     seller: sellerSlice,
     sellerProduct:sellerProductSlice,
+    product:productSlice,
 })
 
 const store=configureStore({
