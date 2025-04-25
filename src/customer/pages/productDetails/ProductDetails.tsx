@@ -1,14 +1,27 @@
 import { Add, AddShoppingCart, FavoriteBorder, LocalShipping, Remove, Shield, Star, Wallet, WorkspacePremium } from "@mui/icons-material";
 import { Button, Divider } from "@mui/material";
 import { teal } from "@mui/material/colors";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SimilarProduct from "./SimilarProduct.tsx";
 import ReviewCard from "../review/ReviewCard.tsx";
-import { useAppDispatch } from "../../../state/Store.ts";
+import { useAppDispatch, useAppSelector } from "../../../state/Store.ts";
+import { useParams } from "react-router-dom";
+import { fetchProductById } from "../../../state/customer/productSlice.ts";
 
 const ProductDateils = () => {
     const [quantity, setQuantity]=React.useState(1);
     const dispatch=useAppDispatch();
+    const {productId}=useParams();
+    const {product}=useAppSelector(store=>store);
+    const [activImage,setActivImage]=useState(0);
+
+    const handleActivImage=(value:number)=>()=>{
+        setActivImage(value)
+    }
+
+    useEffect(()=>{
+        dispatch(fetchProductById(Number(productId)));
+    },[productId])
 
     return(
         <div  className="px-5 lg:px-20 pt-10">
@@ -16,25 +29,25 @@ const ProductDateils = () => {
                 <section className="flex flex-col lg:flex-row gap-5">
                     <div className="w-full lg:w-[15%] flex flex-wrap lg:flex-col gap-3">
                         {
-                            [...Array(4)].map((item)=> 
-                            <img className="lg:w-full w-[50px] cursor-pointer rounded-md"
-                             src="https://images.unsplash.com/photo-1579175548263-85b7adfc5566?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D" 
+                            product.product?.images.map((item,index)=> 
+                            <img onClick={()=>handleActivImage(index)} className="lg:w-full w-[50px] cursor-pointer rounded-md"
+                             src={item}
                              alt=""
                              />)
                         }
                     </div>
                     <div className="w-full lg:w-[85%]">
                         <img className="w-full rounded-md"
-                        src="https://images.unsplash.com/photo-1523537590773-17506913706b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHNob3J0fGVufDB8fDB8fHww"
+                        src={product.product?.images[activImage]}
                          alt="" />
                     </div>
                 </section>
                 <section>
                     <h1 className="font-bold text-lg text-primary-color">
-                        Raam cloting
+                        {product.product?.seller?.businessDetails.businessName}
                     </h1>
                     <p className="text-gray-500 font-semibld">
-                        men black shirt
+                        {product.product?.title}
                     </p>
                     <div className="flex justify-between items-center py-2 border w-[180px] px-3 mt-5">
                         <div className="flex gap-1 items-center">
@@ -47,13 +60,13 @@ const ProductDateils = () => {
                     <div>
                         <div className="price flex items-center gap-3 mt-5 text-2xl">
                             <span className="font-sans text-gray-800">
-                                ֏4000
+                                ֏ {product.product?.sellingPrice}
                             </span>
                             <span className="line-through text-gray-400">
-                                ֏9999
+                                ֏ {product.product?.mrpPrice}
                             </span>
                             <span className="text-primary-color font-semibold">
-                                60%
+                                {product.product?.discountPercent} %
                             </span>
                         </div>
                         <p className="text-sm">Inclusive of all taxes, Free shiping above ֏ 15000.</p>
@@ -119,9 +132,7 @@ const ProductDateils = () => {
                     </div>
                     <div className="mt-5">
                         <p>
-                        The saree comes with an unstitched blouse portion. The blouse worn by 
-                        the model may be for modeling purposes only. Check the blouse portion 
-                        image to get an idea of how the actual blouse portion looks like. 
+                        {product.product?.description}
                         </p>
                     </div>
 
