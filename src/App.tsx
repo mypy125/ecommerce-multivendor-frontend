@@ -16,6 +16,7 @@ import SellerDashboard from './seller/pages/sellerDashboard/SellerDashboard.tsx'
 import AdminDashboard from './admin/pages/dashboard/Dashboard.tsx';
 import store, { useAppDispatch, useAppSelector } from './state/Store.ts';
 import { fetchSellerProfile } from './state/seller/sellerSlice.ts';
+import Auth from './customer/pages/auth/Auth.tsx';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -38,6 +39,7 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/login" element={<Auth/>}/>
           <Route path="/products/:category" element={<Product/>}/>
           <Route path="/reviews/:productId" element={<Review/>}/>
           <Route path="/product-details/:categoryId/:name/:productId" element={<ProductDateils/>}/>

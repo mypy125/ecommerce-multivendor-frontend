@@ -60,7 +60,7 @@ const Navbar = () => {
                                 <h1 className="font-semibold hidden lg:block">Gor</h1>
                             </Button>
                         ) : (
-                            <Button variant="contained">Login</Button>
+                            <Button onClick={()=>navigate("/login")} variant="contained">Login</Button>
                         )}
 
                         <IconButton>
