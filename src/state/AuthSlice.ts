@@ -16,7 +16,7 @@ export const sendLoginSignupOtp=createAsyncThunk("/auth/sendLoginSignupOtp",
 export const signin=createAsyncThunk<any,any>("/auth/signin",
     async(loginRequest,{rejectWithValue})=>{
         try {
-            const response = await api.post("/auth/signin",loginRequest)
+            const response = await api.post("/auth/signing",loginRequest)
             console.log("login otp ",response.data)
             
         } catch (error) {

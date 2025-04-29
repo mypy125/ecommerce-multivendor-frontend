@@ -8,7 +8,7 @@ import { mainCategory } from "../../../data/category/mainCategory.ts";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-    const isLoggedIn = true;
+    const isLoggedIn = false;
     const theme = useTheme();
     const isLarge = useMediaQuery(theme.breakpoints.up("lg"));
     const [selectedCategory, setSelectedCategory]=useState("men");
