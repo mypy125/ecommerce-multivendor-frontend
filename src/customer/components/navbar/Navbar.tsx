@@ -6,14 +6,15 @@ import { AddShoppingCart, FavoriteBorder, Storefront } from "@mui/icons-material
 import CategorySheet from "./CategorySheet.tsx";
 import { mainCategory } from "../../../data/category/mainCategory.ts";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../../state/Store.ts";
 
 const Navbar = () => {
-    const isLoggedIn = false;
     const theme = useTheme();
     const isLarge = useMediaQuery(theme.breakpoints.up("lg"));
     const [selectedCategory, setSelectedCategory]=useState("men");
     const [showCategorySheet, setShowCategorySheet]=useState(false);
     const navigate=useNavigate();
+    const {auth}=useAppSelector(store=>store);
 
     return (
         <>
@@ -51,13 +52,15 @@ const Navbar = () => {
                             <SearchIcon />
                         </IconButton>
 
-                        {isLoggedIn ? (
+                        {auth.user ? (
                             <Button onClick={()=>navigate("/account/orders")} className="flex items-center gap-2">
                                 <Avatar 
                                     sx={{ width: 29, height: 29 }} 
                                     src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                 />
-                                <h1 className="font-semibold hidden lg:block">Gor</h1>
+                                <h1 className="font-semibold hidden lg:block">
+                                    {auth.user?.fullName}
+                                </h1>
                             </Button>
                         ) : (
                             <Button onClick={()=>navigate("/login")} variant="contained">Login</Button>
