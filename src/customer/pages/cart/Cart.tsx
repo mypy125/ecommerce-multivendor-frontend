@@ -1,18 +1,26 @@
-import React, { useState } from "react";
-import CartItem from "./CartItem.tsx";
+import React, { useEffect, useState } from "react";
+import CartItemCard from "./CartItemCard.tsx";
 import { Close, LocalOffer } from "@mui/icons-material";
 import { teal } from "@mui/material/colors";
 import { Button, IconButton, TextField } from "@mui/material";
 import PricingCard from "./PricingCard.tsx";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../state/Store.ts";
+import { fetchUserCart } from "../../../state/customer/cartSlice.ts";
 
 const Cart = () => {
     const [couponCode,setCouponCode]=useState("");
     const navigate=useNavigate();
+    const dispatch = useAppDispatch();
+    const {cart}=useAppSelector(store=>store)
 
     const handleChange = (e:any) => {
         setCouponCode(e.target.value)
     }
+
+    useEffect(()=>{
+        dispatch(fetchUserCart(localStorage.getItem("jwt") || ""))
+    },[])
 
     return(
         <div className="pt-10 px-5 sm:px-10 md:px-60 min-h-screen">
@@ -21,7 +29,7 @@ const Cart = () => {
 
                 <div className="cartItemSection lg:col-span-2 space-y-3">
                     {
-                        [...Array(6)].map((item)=> <CartItem/>)
+                        cart.cart?.cartItems.map((item)=> <CartItemCard item={item}/>)
                     }
                 </div>
 

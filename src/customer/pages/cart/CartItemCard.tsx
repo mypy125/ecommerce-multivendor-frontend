@@ -1,10 +1,18 @@
 import { Add, Close, Remove } from "@mui/icons-material";
 import { Button, Divider, IconButton } from "@mui/material";
 import React from "react";
+import { CartItem } from "../../../types/cartTypes.ts";
+import { useAppDispatch } from "../../../state/Store.ts";
+import { updateCartItem } from "../../../state/customer/cartSlice.ts";
 
-const CartItem = () => {
-    const handleUpdateQuantity = () => {
-        //update Cart Item Quantity
+const CartItemCard = ({item}:{item:CartItem}) => {
+    const dispatch=useAppDispatch();
+
+    const handleUpdateQuantity = (value:number)=> () => {
+        dispatch(updateCartItem({jwt:localStorage.getItem("jwt"),
+            cartItemId:item.id,
+            cartItem:{quantity:item.quantity+value}
+        }))
     }
 
     return(
@@ -14,16 +22,16 @@ const CartItem = () => {
 
                 <div>
                     <img className="w-[90px] rounded-md"
-                     src="https://images.unsplash.com/photo-1598522325074-042db73aa4e6?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                     src={item.product.images[0]}
                      alt="" />
                 </div>
                 <div className="space-y-2">
 
-                    <h1 className="font-semibld text-lg">Virani Clothing</h1>
-                    <p className="text-gray-400 font-medium text-sm">Turquoise White Stronework Satin Design Saree</p>
+                    <h1 className="font-semibld text-lg">{item.product.seller?.businessDetails.businessName}</h1>
+                    <p className="text-gray-400 font-medium text-sm">{item.product.title}</p>
                     <p className="text-gray-400 text-xs"><strong >Sold by:</strong> Natural Lifestyle Product Private Limited</p>
                     <p className="text-sm">7 days replacment available</p>
-                    <p className="text-sm text-gray-500"><strong>quantity: </strong> 5</p>
+                    <p className="text-sm text-gray-500"><strong>quantity: </strong> {item.quantity}</p>
                 </div>
             </div>
 
@@ -32,19 +40,19 @@ const CartItem = () => {
            <div className="flex justify-between items-center">
                 <div className="px-5 py-2 flex justify-between items-center">
                      <div className="flex items-center gap-2 w-[140px] justify-between">
-                         <Button onClick={handleUpdateQuantity} disabled={true}>
+                         <Button onClick={handleUpdateQuantity(-1)} disabled={true}>
                                  <Remove/>
                              </Button>
                              <span>
-                                 {5}
+                                 {item.quantity}
                              </span>
-                             <Button onClick={handleUpdateQuantity}>
+                             <Button onClick={handleUpdateQuantity(1)}>
                                  <Add/>
                          </Button>
                      </div>
                  </div>
                  <div className="pr-5">
-                     <p className="text-gray-700 font-medium">֏4999</p>
+                     <p className="text-gray-700 font-medium">֏{item.sellingPrice}</p>
                  </div>
            </div>
            <div className="absolute top-1 right-1">
@@ -56,4 +64,4 @@ const CartItem = () => {
     )
 }
 
-export default CartItem;
+export default CartItemCard;
