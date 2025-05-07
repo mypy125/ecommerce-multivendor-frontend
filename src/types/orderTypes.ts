@@ -1,5 +1,5 @@
 import { Product } from "./productTypes.ts";
-import { Addresses, User } from "./userTypes.ts";
+import { Address, User } from "./userTypes.ts";
 
 export interface OrderState{
     orders:Order[];
@@ -18,7 +18,7 @@ export interface Order{
     sellerId:number;
     orderItem:OrderItem[];
     orderDate:string;
-    shippingAddress:Addresses;
+    shippingAddress:Address;
     paymentDetails:any;
     totalMrpPrice:number;
     totalSellingPrice?:number;
