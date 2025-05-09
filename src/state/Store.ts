@@ -6,6 +6,7 @@ import sellerProductSlice from "./seller/sellerProductSlice.ts";
 import productSlice from "./customer/productSlice.ts";
 import authSlice from "./AuthSlice.ts";
 import cartSlice from "./customer/cartSlice.ts";
+import OrderSlice from "./customer/orderSlice.ts";
 
 const rootReducer=combineReducers({
     seller: sellerSlice,
@@ -13,6 +14,7 @@ const rootReducer=combineReducers({
     product:productSlice,
     auth:authSlice,
     cart:cartSlice,
+    order:OrderSlice,
 })
 
 const store=configureStore({
