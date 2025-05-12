@@ -18,6 +18,7 @@ import store, { useAppDispatch, useAppSelector } from './state/Store.ts';
 import { fetchSellerProfile } from './state/seller/sellerSlice.ts';
 import Auth from './customer/pages/auth/Auth.tsx';
 import { fetchUserProfile } from './state/AuthSlice.ts';
+import PaymentSuccess from './customer/pages/PaymentSuccess.tsx';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -50,6 +51,7 @@ function App() {
           <Route path="/product-details/:categoryId/:name/:productId" element={<ProductDateils/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/checkout" element={<Checkout/>}/>
+          <Route path="/payment-cuccess/:orderId" element={<PaymentSuccess/>}/>
           <Route path="/become-seller" element={<BecomeSeller/>}/>
           <Route path="/account/*" element={<Account/>}/>
           <Route path="/seller/*" element={<SellerDashboard/>}/>
