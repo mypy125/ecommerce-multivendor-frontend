@@ -1,5 +1,5 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import {WishlistState} from "../../types/wishlistTypes.ts";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {Wishlist, WishlistState} from "../../types/wishlistTypes.ts";
 import { api } from "../../config/Api.ts";
 
 const initialState:WishlistState={
@@ -45,3 +45,45 @@ export const addProductToWishlist=createAsyncThunk(
         }
     }
 )
+
+const wishlistSlice = createSlice({
+    name:"wishlist",
+    initialState,
+    reducers: {
+        resetWishlistState: (state)=>{
+            state.wishlist=null;
+            state.loading=false;
+            state.error=null;
+        },
+    },
+    extraReducers: (build)=> {
+        build.addCase(getWishlistByUserId.pending,(state)=>{
+            state.loading= true;
+            state.error=null;
+        })
+        .addCase(getWishlistByUserId.fulfilled,(state,action:PayloadAction<Wishlist>)=>{
+            state.wishlist= action.payload;
+            state.loading=false;
+        })
+        .addCase(getWishlistByUserId.rejected,(state,action:PayloadAction<any>)=>{
+            state.loading=false;
+            state.error=action.payload;
+        })
+        .addCase(addProductToWishlist.pending,(state)=>{
+            state.loading=true;
+            state.error=null;
+        })
+        .addCase(addProductToWishlist.fulfilled,(state,action:PayloadAction<Wishlist>)=>{
+            state.wishlist=action.payload;
+            state.loading=false;
+        })
+        .addCase(addProductToWishlist.rejected,(state,action:PayloadAction<any>)=>{
+            state.loading=false;
+            state.error=action.payload;
+        })
+    }
+})
+
+export const {resetWishlistState} = wishlistSlice.actions;
+
+export default wishlistSlice.reducer;
